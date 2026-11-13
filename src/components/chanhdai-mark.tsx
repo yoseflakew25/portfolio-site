@@ -1,20 +1,28 @@
+import { cn } from "@/lib/utils"
+
+/**
+ * Flat JC mark — same 64px slab construction as the original CD mark.
+ */
 export function ChanhDaiMark(props: React.ComponentProps<"svg">) {
+  const { className, ...rest } = props
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 512 256"
       aria-hidden
-      {...props}
+      className={cn(className)}
+      {...rest}
     >
-      <path
-        fill="currentColor"
-        d="M192 256H64v-64h128v64ZM448 64H320v128h128v64H256V0h192v64ZM64 192H0V64h64v128ZM512 192h-64V64h64v128ZM192 64H64V0h128v64Z"
-      />
+      <path fill="currentColor" d={JC_MARK_PATH} />
     </svg>
   )
 }
 
 export function getMarkSVG() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 256 128"><path fill="currentColor" d="M96 128H32V96h64v32ZM224 32h-64v64h64v32h-96V0h96v32ZM32 96H0V32h32v64ZM256 96h-32V32h32v64ZM96 32H32V0h64v32Z"/></svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 512 256"><path fill="currentColor" d="${JC_MARK_PATH}"/></svg>`
 }
+
+const JC_MARK_PATH =
+  "M192 0H96V160H192V0ZM192 160H0V256H192V160ZM64 128H0V160H64V128ZM448 0H224V96H448V0ZM320 96H224V160H320V96ZM448 160H224V256H448V160Z"

@@ -75,11 +75,11 @@ const DEFAULT_LABELS: Labels = {
 }
 
 const THEME = cn(
-  'data-[level="0"]:fill-muted-foreground/5',
-  'data-[level="1"]:fill-muted-foreground/20',
-  'data-[level="2"]:fill-muted-foreground/40',
-  'data-[level="3"]:fill-muted-foreground/60',
-  'data-[level="4"]:fill-muted-foreground/80'
+  'data-[level="0"]:fill-border/70',
+  'data-[level="1"]:fill-[color-mix(in_oklab,var(--p-accent)_28%,var(--background))]',
+  'data-[level="2"]:fill-[color-mix(in_oklab,var(--p-accent)_48%,var(--background))]',
+  'data-[level="3"]:fill-[color-mix(in_oklab,var(--p-accent)_72%,var(--background))]',
+  'data-[level="4"]:fill-(--p-accent)'
 )
 
 type ContributionGraphContextType = {

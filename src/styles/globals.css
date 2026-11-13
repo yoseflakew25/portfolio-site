@@ -181,7 +181,7 @@
 }
 
 @utility dot-grid {
-  @apply [--pattern-foreground:var(--color-zinc-950)]/5 dark:[--pattern-foreground:var(--color-white)]/5;
+  @apply [--pattern-foreground:var(--foreground)]/8 dark:[--pattern-foreground:var(--foreground)]/10;
   @apply bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-size-[8px_8px];
 }
 
@@ -239,98 +239,70 @@
 }
 
 :root {
-  /* white */
-  --background: oklch(1 0 0);
+  /* Rotli — light (default). Paper cream + terracotta ink. */
+  --p-ground: #f8f2e9;
+  --p-surface: #fbf6ee;
+  --p-surface-2: #f1e7d8;
+  --p-tint: #f2d6c2;
+  --p-text: #3a3028;
+  --p-muted: #6e6155;
+  --p-border: #e2d3c1;
+  --p-accent: #c97e62;
+  --p-accent-ink: #8f4e37;
+  --p-on-accent: #ffffff;
 
-  /* zinc-950 */
-  --foreground: oklch(0.141 0.005 285.823);
+  --background: var(--p-ground);
+  --foreground: var(--p-text);
 
-  /* zinc-950 */
-  --primary: oklch(0.141 0.005 285.823);
+  --primary: var(--p-text);
+  --primary-foreground: var(--p-ground);
 
-  /* zinc-50 */
-  --primary-foreground: oklch(0.985 0 0);
+  --secondary: var(--p-surface-2);
+  --secondary-foreground: var(--p-text);
 
-  /* zinc-100 */
-  --secondary: oklch(0.967 0.001 286.375);
+  --muted: var(--p-surface-2);
+  --muted-foreground: var(--p-muted);
 
-  /* zinc-950 */
-  --secondary-foreground: oklch(0.141 0.005 285.823);
+  --card: var(--p-surface);
+  --card-foreground: var(--p-text);
 
-  /* zinc-100 */
-  --muted: oklch(0.967 0.001 286.375);
+  --popover: var(--p-surface);
+  --popover-foreground: var(--p-text);
 
-  /* zinc-500 */
-  --muted-foreground: oklch(0.552 0.016 285.938);
-
-  /* white */
-  --card: oklch(1 0 0);
-
-  /* zinc-950 */
-  --card-foreground: oklch(0.141 0.005 285.823);
-
-  /* white */
-  --popover: oklch(1 0 0);
-
-  /* zinc-950 */
-  --popover-foreground: oklch(0.141 0.005 285.823);
-
-  /* zinc-100 */
-  --accent: oklch(0.967 0.001 286.375);
-
+  --accent: var(--p-surface-2);
   --accent-muted: color-mix(in oklab, var(--accent) 50%, transparent);
+  --accent-foreground: var(--p-text);
 
-  /* zinc-900 */
-  --accent-foreground: oklch(0.21 0.006 285.885);
+  --border: var(--p-border);
+  --border-strong: var(--p-border);
+  --line: var(--border);
+  --input: var(--p-border);
+  --ring: color-mix(in oklab, var(--p-border), var(--p-text) 18%);
 
-  /* zinc-200 */
-  --border: oklch(0.92 0.004 286.32);
+  --info: var(--p-accent);
+  --success: #8d9a76;
+  --destructive: #9f3d3d;
+  --link: var(--p-accent-ink);
 
-  /* color-mix */
-  --line: color-mix(in oklab, var(--border) 64%, var(--background));
-
-  /* zinc-200 */
-  --input: oklch(0.92 0.004 286.32);
-
-  /* zinc-400 */
-  --ring: oklch(0.705 0.015 286.067);
-
-  --info: oklch(0.67 0.17 244.98);
-
-  /* green-500 */
-  --success: oklch(0.723 0.219 149.579);
-
-  /* red-600 */
-  --destructive: oklch(0.577 0.245 27.325);
-
-  /* blue-700 */
-  --link: oklch(0.488 0.243 264.376);
-
-  /* zinc-50 */
-  --surface: oklch(0.985 0 0);
-
-  /* zinc-950 */
-  --surface-foreground: oklch(0.141 0.005 285.823);
+  --surface: var(--p-surface);
+  --surface-foreground: var(--p-text);
 
   --code: var(--background);
   --code-foreground: var(--foreground);
-  --code-number: oklch(0.24 0.01 0 / 0.3);
-  --code-highlight: oklch(0.49 0.18 257.61 / 0.06);
+  --code-number: color-mix(in oklab, var(--foreground) 36%, transparent);
+  --code-highlight: color-mix(in oklab, var(--p-accent) 14%, transparent);
 
-  /* zinc-950 */
-  --selection: oklch(0.141 0.005 285.823);
+  --selection: var(--p-tint);
+  --selection-foreground: var(--p-text);
 
-  /* zinc-50 */
-  --selection-foreground: oklch(0.985 0 0);
-
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.21 0.006 285.885);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
+  --sidebar: var(--p-surface);
+  --sidebar-foreground: var(--p-text);
+  --sidebar-primary: var(--p-text);
+  --sidebar-primary-foreground: var(--p-ground);
+  --sidebar-accent: var(--p-surface-2);
+  --sidebar-accent-foreground: var(--p-text);
+  --sidebar-border: var(--p-border);
+  --sidebar-ring: var(--ring);
 
   --expo-out: linear(
     0 0%,
@@ -351,34 +323,34 @@
     1 100%
   );
 
-  --chart-1: oklch(0.32 0 none);
-  --chart-2: oklch(0.41 0 none);
-  --chart-3: oklch(0.54 0 none);
-  --chart-4: oklch(0.71 0 none);
-  --chart-5: oklch(0.89 0 none);
-  --chart-background: oklch(1 0 0);
-  --chart-foreground: oklch(0.141 0.005 285.823);
-  --chart-foreground-muted: oklch(0.552 0.016 285.938);
+  --chart-1: var(--p-text);
+  --chart-2: var(--p-muted);
+  --chart-3: color-mix(in oklab, var(--p-muted), var(--p-border));
+  --chart-4: var(--ring);
+  --chart-5: var(--p-border);
+  --chart-background: var(--background);
+  --chart-foreground: var(--foreground);
+  --chart-foreground-muted: var(--muted-foreground);
   --chart-line-primary: var(--chart-1);
   --chart-line-secondary: var(--chart-2);
-  --chart-crosshair: oklch(0.705 0.015 286.067);
+  --chart-crosshair: var(--ring);
   --chart-grid: color-mix(in oklab, var(--border) 64%, var(--background));
-  --chart-tooltip-background: oklch(1 0 0);
-  --chart-tooltip-foreground: oklch(0.141 0.005 285.823);
-  --chart-tooltip-muted: oklch(0.552 0.016 285.938);
-  --chart-marker-background: oklch(0.97 0.005 260);
-  --chart-marker-border: oklch(0.85 0.01 260);
-  --chart-marker-foreground: oklch(0.3 0.01 260);
-  --chart-ring-background: oklch(0.9 0.005 260 / 0.25);
-  --chart-label: oklch(0.45 0.01 260);
+  --chart-tooltip-background: var(--popover);
+  --chart-tooltip-foreground: var(--foreground);
+  --chart-tooltip-muted: var(--muted-foreground);
+  --chart-marker-background: var(--secondary);
+  --chart-marker-border: var(--ring);
+  --chart-marker-foreground: var(--foreground);
+  --chart-ring-background: color-mix(in oklab, var(--border) 50%, transparent);
+  --chart-label: var(--muted-foreground);
 
   /* Daikanoid — hex because p5 1.x cannot parse oklch() */
-  --dk-background: #ffffff;
-  --dk-foreground: #09090b;
-  --dk-muted-foreground: #a1a1aa;
-  --dk-brick: #a1a1aa;
-  --dk-brick-highlight: rgba(255, 255, 255, 0.5);
-  --dk-brick-shadow: #71717a;
+  --dk-background: #f8f2e9;
+  --dk-foreground: #3a3028;
+  --dk-muted-foreground: #6e6155;
+  --dk-brick: #c97e62;
+  --dk-brick-highlight: rgba(255, 255, 255, 0.45);
+  --dk-brick-shadow: #8f4e37;
 
   /* Layout */
   --header-height: --spacing(14);
@@ -386,120 +358,36 @@
 }
 
 .dark {
-  /* zinc-950 */
-  --background: oklch(0.141 0.005 285.823);
+  /* Rotli — dark. Warm espresso paper. */
+  --p-ground: #241d18;
+  --p-surface: #2e2620;
+  --p-surface-2: #392f28;
+  --p-tint: #3e332b;
+  --p-text: #f1e7da;
+  --p-muted: #b7a593;
+  --p-border: #4b3c31;
+  --p-accent: #c97e62;
+  --p-accent-ink: #d99579;
+  --p-on-accent: #241d18;
 
-  /* zinc-50 */
-  --foreground: oklch(0.985 0 0);
+  --accent-muted: color-mix(in oklab, var(--accent) 50%, transparent);
 
-  /* zinc-50 */
-  --primary: oklch(0.985 0 0);
+  --success: #a9b78f;
+  --destructive: #e58b8b;
 
-  /* zinc-950 */
-  --primary-foreground: oklch(0.141 0.005 285.823);
+  --code-number: color-mix(in oklab, var(--foreground) 36%, transparent);
+  --code-highlight: color-mix(in oklab, var(--p-accent) 14%, transparent);
 
-  /* zinc-800 */
-  --secondary: oklch(0.274 0.006 286.033);
-
-  /* zinc-50 */
-  --secondary-foreground: oklch(0.985 0 0);
-
-  /* zinc-800 */
-  --muted: oklch(0.274 0.006 286.033);
-
-  /* zinc-400 */
-  --muted-foreground: oklch(0.705 0.015 286.067);
-
-  /* zinc-900 */
-  --card: oklch(0.21 0.006 285.885);
-
-  /* zinc-50 */
-  --card-foreground: oklch(0.985 0 0);
-
-  /* zinc-900 */
-  --popover: oklch(0.21 0.006 285.885);
-
-  /* zinc-50 */
-  --popover-foreground: oklch(0.985 0 0);
-
-  /* zinc-800 */
-  --accent: oklch(0.274 0.006 286.033);
-
-  --accent-muted: color-mix(in oklab, var(--accent) 20%, transparent);
-
-  /* zinc-50 */
-  --accent-foreground: oklch(0.985 0 0);
-
-  /* zinc-800 */
-  --border: oklch(0.274 0.006 286.033);
-
-  /* --line: color-mix(in oklab, var(--border) 64%, var(--background)); */
-
-  --input: lab(100% 0 0 / 0.15);
-
-  /* zinc-500 */
-  --ring: oklch(0.552 0.016 285.938);
-
-  /* green-500 */
-  --success: oklch(0.723 0.219 149.579);
-
-  /* red-700 */
-  --destructive: oklch(0.505 0.213 27.518);
-
-  /* blue-500 */
-  --link: oklch(0.623 0.214 259.815);
-
-  /* zinc-900 */
-  --surface: oklch(0.21 0.006 285.885);
-
-  /* zinc-50 */
-  --surface-foreground: oklch(0.985 0 0);
-
-  --code: var(--background);
-  --code-foreground: var(--foreground);
-  --code-number: oklch(0.43 0 0);
-  --code-highlight: oklch(0.71 0.24 42.36 / 0.06);
-
-  /* zinc-50 */
-  --selection: oklch(0.985 0 0);
-
-  /* zinc-950 */
-  --selection-foreground: oklch(0.141 0.005 285.823);
-
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.552 0.016 285.938);
-
-  --chart-1: oklch(1 0 none);
-  --chart-2: oklch(0.73 0 none);
-  --chart-3: oklch(0.51 0 none);
-  --chart-4: oklch(0.39 0 none);
-  --chart-5: oklch(0.32 0 none);
-  --chart-background: oklch(0.141 0.005 285.823);
-  --chart-foreground: oklch(0.985 0 0);
-  --chart-foreground-muted: oklch(0.705 0.015 286.067);
-  --chart-crosshair: oklch(0.442 0.017 285.786);
-  --chart-tooltip-background: oklch(0.21 0.006 285.885);
-  --chart-tooltip-foreground: oklch(0.985 0 0);
-  --chart-tooltip-muted: oklch(0.705 0.015 286.067);
-  --chart-marker-background: oklch(0.25 0.01 260);
-  --chart-marker-border: oklch(0.4 0.01 260);
-  --chart-marker-foreground: oklch(0.9 0 0);
-  --chart-ring-background: oklch(0.35 0.01 260 / 0.25);
-  --chart-label: oklch(0.75 0.01 260);
+  --selection: color-mix(in oklab, var(--p-tint), var(--p-accent) 22%);
+  --selection-foreground: var(--p-text);
 
   /* Daikanoid — hex because p5 1.x cannot parse oklch() */
-  --dk-background: #09090b;
-  --dk-foreground: #fafafa;
-  --dk-muted-foreground: #71717a;
-  --dk-brick: #71717a;
-  --dk-brick-highlight: rgba(255, 255, 255, 0.3);
-  --dk-brick-shadow: #3f3f46;
+  --dk-background: #241d18;
+  --dk-foreground: #f1e7da;
+  --dk-muted-foreground: #b7a593;
+  --dk-brick: #c97e62;
+  --dk-brick-highlight: rgba(255, 255, 255, 0.25);
+  --dk-brick-shadow: #8f4e37;
 }
 
 @layer base {

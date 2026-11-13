@@ -38,12 +38,12 @@ export function ProfileHeader() {
               <img
                 className="block size-full rounded-[inherit] object-cover select-none dark:hidden"
                 src={USER.avatarSketch}
-                alt="Avatar with sketch style in light mode"
+                alt={`${USER.displayName} avatar`}
               />
               <img
                 className="hidden size-full rounded-[inherit] object-cover select-none dark:block"
                 src={USER.avatar}
-                alt="Avatar in dark mode"
+                alt={`${USER.displayName} avatar`}
               />
               <div className="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring-1 inset-ring-foreground/30 dark:inset-ring-foreground/10" />
             </div>

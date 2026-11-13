@@ -42,10 +42,14 @@ export function useSound(
 
     let cancelled = false
 
-    fetchAndDecodeAudio(url).then((buffer) => {
-      if (cancelled) return
-      bufferRef.current = buffer
-    })
+    fetchAndDecodeAudio(url)
+      .then((buffer) => {
+        if (cancelled) return
+        bufferRef.current = buffer
+      })
+      .catch(() => {
+        // Remote/CDN audio can fail offline or under CORS; keep UI usable.
+      })
 
     return () => {
       cancelled = true

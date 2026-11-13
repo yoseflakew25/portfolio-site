@@ -1,4 +1,4 @@
-import { Caveat, IBM_Plex_Serif } from "next/font/google"
+import localFont from "next/font/local"
 import { GeistMono } from "geist/font/mono"
 import { GeistSans } from "geist/font/sans"
 
@@ -7,39 +7,43 @@ import { cn } from "@/lib/utils"
 const fontSans = GeistSans
 const fontMono = GeistMono
 
-const fontSerif = IBM_Plex_Serif({
-  weight: ["400"],
+// Self-hosted to avoid Next 16.3 Turbopack + next/font/google kit-URL failures.
+// See https://github.com/vercel/next.js/issues/99114
+const fontSerif = localFont({
+  src: [
+    {
+      path: "../assets/fonts/IBMPlexSerif-latin.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/IBMPlexSerif-500-latin.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   display: "swap",
-  variable: "--font-serif",
+  variable: "--font-ibm-plex-serif",
+  fallback: ["Georgia", "serif"],
 })
 
-const fontHandwritten = Caveat({
-  weight: ["400", "500"],
+const fontHandwritten = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Caveat-latin.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/Caveat-latin.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   display: "swap",
-  variable: "--font-handwritten",
+  variable: "--font-caveat",
+  fallback: ["cursive"],
 })
-
-// const fontPixel = localFont({
-//   src: "../assets/fonts/DepartureMono-Regular.woff2",
-//   weight: "400",
-//   fallback: ["monospace"],
-//   variable: "--font-pixel",
-// })
-
-// const pixelatedMSSansSerif = localFont({
-//   src: [
-//     {
-//       path: "../assets/fonts/ms_sans_serif.woff2",
-//       weight: "400",
-//     },
-//     {
-//       path: "../assets/fonts/ms_sans_serif_bold.woff2",
-//       weight: "700",
-//     },
-//   ],
-//   fallback: ["Arial"],
-//   variable: "--font-98cn",
-// })
 
 export const fontVariables = cn(
   fontSans.variable,
@@ -47,5 +51,7 @@ export const fontVariables = cn(
   fontSerif.variable,
   fontHandwritten.variable,
   "[--font-sans:var(--font-geist-sans)]",
-  "[--font-mono:var(--font-geist-mono)]"
+  "[--font-mono:var(--font-geist-mono)]",
+  "[--font-serif:var(--font-ibm-plex-serif)]",
+  "[--font-handwritten:var(--font-caveat)]"
 )
